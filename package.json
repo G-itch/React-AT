@@ -2,7 +2,7 @@
   "name": "at-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://[seu-usuario].github.io/at-react",
+  "homepage": "https://g-itch.github.io/React-AT/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
