@@ -1,0 +1,122 @@
+.user-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.user-card:hover {
+  border-color: #007bff;
+}
+
+.user-card.grid-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-height: 200px;
+}
+
+.user-card.list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 80px;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.user-card.list-item .user-avatar {
+  margin-bottom: 0;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.user-company {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.user-company strong {
+  color: #333;
+}
+
+.user-catchphrase {
+  color: #007bff;
+  font-style: italic;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.user-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.user-card.list-item .user-contact {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.user-email,
+.user-phone {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.user-actions {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.user-card.list-item .user-actions {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.click-hint {
+  color: #007bff;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .user-card.list-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .user-card.list-item .user-avatar {
+    margin-bottom: 0.3rem;
+  }
+
+  .user-card.list-item .user-contact {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}

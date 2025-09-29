@@ -1,0 +1,90 @@
+.post-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.post-card:hover {
+  border-color: #28a745;
+}
+
+.post-card.grid-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+}
+
+.post-card.list-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.post-title {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1.3;
+  flex: 1;
+  margin: 0;
+}
+
+.post-id {
+  background-color: #6c757d;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.post-body {
+  flex: 1;
+  margin-bottom: 0.5rem;
+}
+
+.post-body p {
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.post-actions {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid #eee;
+}
+
+.post-card.list-item .post-actions {
+  margin-top: 0.3rem;
+  padding-top: 0.3rem;
+}
+
+.click-hint {
+  color: #28a745;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .post-id {
+    align-self: flex-start;
+  }
+}

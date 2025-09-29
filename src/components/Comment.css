@@ -1,0 +1,146 @@
+.comment-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  transition: border-color 0.2s;
+}
+
+.comment-card:hover {
+  border-color: #ffc107;
+}
+
+.comment-card.grid-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 120px;
+}
+
+.comment-card.list-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.comment-author {
+  flex: 1;
+}
+
+.comment-name {
+  color: #333;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 0 0.2rem 0;
+}
+
+.comment-email {
+  color: #007bff;
+  font-size: 0.8rem;
+  background: #f8f9fa;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.delete-button {
+  background: #dc3545;
+  border: none;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.delete-button:hover {
+  background: #c82333;
+}
+
+.comment-body {
+  flex: 1;
+  margin-bottom: 0.5rem;
+}
+
+.comment-body p {
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.delete-confirmation {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.delete-confirmation p {
+  color: #856404;
+  margin: 0 0 0.8rem 0;
+  font-size: 0.9rem;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.confirm-delete,
+.cancel-delete {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.confirm-delete {
+  background: #dc3545;
+  color: white;
+}
+
+.confirm-delete:hover {
+  background: #c82333;
+}
+
+.cancel-delete {
+  background: #6c757d;
+  color: white;
+}
+
+.cancel-delete:hover {
+  background: #5a6268;
+}
+
+@media (max-width: 768px) {
+  .comment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .delete-button {
+    align-self: flex-end;
+  }
+
+  .confirmation-buttons {
+    flex-direction: column;
+  }
+
+  .confirm-delete,
+  .cancel-delete {
+    width: 100%;
+  }
+}
