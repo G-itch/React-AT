@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import FetchData from './services/FetchData';
-import User from './components/User';
-import Post from './components/Post';
-import Comment from './components/Comment';
-import Navigation from './components/Navigation';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import FetchData from "./services/FetchData";
+import User from "./components/User";
+import Post from "./components/Post";
+import Comment from "./components/Comment";
+import Navigation from "./components/Navigation";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -12,7 +12,7 @@ function App() {
   const [comments, setComments] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [selectedPost, setSelectedPost] = useState(null);
-  const [currentView, setCurrentView] = useState('users');
+  const [currentView, setCurrentView] = useState("users");
   const [isGridView, setIsGridView] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -27,15 +27,15 @@ function App() {
     try {
       const usersData = await FetchData.getUsers();
       setUsers(usersData);
-      setCurrentView('users');
+      setCurrentView("users");
       setSelectedUser(null);
       setSelectedPost(null);
       setPosts([]);
       setComments([]);
     } catch (err) {
-      let errorMessage = 'Erro ao carregar usuários';
-      if (err.message.includes('Failed to fetch')) {
-        errorMessage = 'Problema de conexão. Verifique sua internet.';
+      let errorMessage = "Erro ao carregar usuários";
+      if (err.message.includes("Failed to fetch")) {
+        errorMessage = "Problema de conexão. Verifique sua internet.";
       }
       setError(errorMessage);
       console.error(err);
@@ -51,13 +51,13 @@ function App() {
       const postsData = await FetchData.getPostsByUserId(user.id);
       setSelectedUser(user);
       setPosts(postsData);
-      setCurrentView('posts');
+      setCurrentView("posts");
       setSelectedPost(null);
       setComments([]);
     } catch (err) {
-      let errorMessage = 'Erro ao carregar posts do usuário';
-      if (err.message.includes('Failed to fetch')) {
-        errorMessage = 'Problema de conexão ao carregar posts.';
+      let errorMessage = "Erro ao carregar posts do usuário";
+      if (err.message.includes("Failed to fetch")) {
+        errorMessage = "Problema de conexão ao carregar posts.";
       }
       setError(errorMessage);
       console.error(err);
@@ -73,11 +73,11 @@ function App() {
       const commentsData = await FetchData.getCommentsByPostId(post.id);
       setSelectedPost(post);
       setComments(commentsData);
-      setCurrentView('comments');
+      setCurrentView("comments");
     } catch (err) {
-      let errorMessage = 'Erro ao carregar comentários do post';
-      if (err.message.includes('Failed to fetch')) {
-        errorMessage = 'Problema de conexão ao carregar comentários.';
+      let errorMessage = "Erro ao carregar comentários do post";
+      if (err.message.includes("Failed to fetch")) {
+        errorMessage = "Problema de conexão ao carregar comentários.";
       }
       setError(errorMessage);
       console.error(err);
@@ -91,13 +91,13 @@ function App() {
   };
 
   const handleBackToPosts = () => {
-    setCurrentView('posts');
+    setCurrentView("posts");
     setSelectedPost(null);
     setComments([]);
   };
 
   const handleDeleteComment = (commentId) => {
-    setComments(comments.filter(comment => comment.id !== commentId));
+    setComments(comments.filter((comment) => comment.id !== commentId));
   };
 
   const toggleViewMode = () => {
@@ -126,10 +126,10 @@ function App() {
     }
 
     switch (currentView) {
-      case 'users':
+      case "users":
         return (
-          <div className={`content ${isGridView ? 'grid-view' : 'list-view'}`}>
-            {users.map(user => (
+          <div className={`content ${isGridView ? "grid-view" : "list-view"}`}>
+            {users.map((user) => (
               <User
                 key={user.id}
                 user={user}
@@ -139,11 +139,11 @@ function App() {
             ))}
           </div>
         );
-      
-      case 'posts':
+
+      case "posts":
         return (
-          <div className={`content ${isGridView ? 'grid-view' : 'list-view'}`}>
-            {posts.map(post => (
+          <div className={`content ${isGridView ? "grid-view" : "list-view"}`}>
+            {posts.map((post) => (
               <Post
                 key={post.id}
                 post={post}
@@ -153,11 +153,11 @@ function App() {
             ))}
           </div>
         );
-      
-      case 'comments':
+
+      case "comments":
         return (
-          <div className={`content ${isGridView ? 'grid-view' : 'list-view'}`}>
-            {comments.map(comment => (
+          <div className={`content ${isGridView ? "grid-view" : "list-view"}`}>
+            {comments.map((comment) => (
               <Comment
                 key={comment.id}
                 comment={comment}
@@ -167,7 +167,7 @@ function App() {
             ))}
           </div>
         );
-      
+
       default:
         return null;
     }
@@ -178,12 +178,12 @@ function App() {
       <header className="header">
         <h1>AT React</h1>
         <div className="header-controls">
-          <button 
+          <button
             onClick={toggleViewMode}
             className="view-toggle"
-            title={isGridView ? 'Alternar para Lista' : 'Alternar para Grade'}
+            title={isGridView ? "Alternar para Lista" : "Alternar para Grade"}
           >
-            {isGridView ? 'Lista' : 'Grade'}
+            {isGridView ? "Lista" : "Grade"}
           </button>
         </div>
       </header>
@@ -196,10 +196,7 @@ function App() {
         onBackToPosts={handleBackToPosts}
       />
 
-      <main className="main">
-        {renderContent()}
-      </main>
-
+      <main className="main">{renderContent()}</main>
     </div>
   );
 }

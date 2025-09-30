@@ -1,5 +1,5 @@
 class FetchData {
-  static baseURL = 'https://jsonplaceholder.typicode.com';
+  static baseURL = "https://jsonplaceholder.typicode.com";
 
   static async getUsers() {
     try {
@@ -9,8 +9,11 @@ class FetchData {
       }
       return await response.json();
     } catch (error) {
-      if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-        await new Promise(resolve => setTimeout(resolve, 1000));
+      if (
+        error.name === "TypeError" &&
+        error.message.includes("Failed to fetch")
+      ) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         try {
           const retryResponse = await fetch(`${this.baseURL}/users`);
           if (!retryResponse.ok) {
@@ -18,11 +21,11 @@ class FetchData {
           }
           return await retryResponse.json();
         } catch (retryError) {
-          console.error('Erro ao buscar usuários após retry:', retryError);
+          console.error("Erro ao buscar usuários após retry:", retryError);
           throw retryError;
         }
       }
-      console.error('Erro ao buscar usuários:', error);
+      console.error("Erro ao buscar usuários:", error);
       throw error;
     }
   }
@@ -35,20 +38,25 @@ class FetchData {
       }
       return await response.json();
     } catch (error) {
-      if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-        await new Promise(resolve => setTimeout(resolve, 500));
+      if (
+        error.name === "TypeError" &&
+        error.message.includes("Failed to fetch")
+      ) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
         try {
-          const retryResponse = await fetch(`${this.baseURL}/posts/?userId=${userId}`);
+          const retryResponse = await fetch(
+            `${this.baseURL}/posts/?userId=${userId}`
+          );
           if (!retryResponse.ok) {
             throw new Error(`Erro ao buscar posts: ${retryResponse.status}`);
           }
           return await retryResponse.json();
         } catch (retryError) {
-          console.error('Erro ao buscar posts após retry:', retryError);
+          console.error("Erro ao buscar posts após retry:", retryError);
           throw retryError;
         }
       }
-      console.error('Erro ao buscar posts:', error);
+      console.error("Erro ao buscar posts:", error);
       throw error;
     }
   }
@@ -61,20 +69,27 @@ class FetchData {
       }
       return await response.json();
     } catch (error) {
-      if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-        await new Promise(resolve => setTimeout(resolve, 500));
+      if (
+        error.name === "TypeError" &&
+        error.message.includes("Failed to fetch")
+      ) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
         try {
-          const retryResponse = await fetch(`${this.baseURL}/comments?postId=${postId}`);
+          const retryResponse = await fetch(
+            `${this.baseURL}/comments?postId=${postId}`
+          );
           if (!retryResponse.ok) {
-            throw new Error(`Erro ao buscar comentários: ${retryResponse.status}`);
+            throw new Error(
+              `Erro ao buscar comentários: ${retryResponse.status}`
+            );
           }
           return await retryResponse.json();
         } catch (retryError) {
-          console.error('Erro ao buscar comentários após retry:', retryError);
+          console.error("Erro ao buscar comentários após retry:", retryError);
           throw retryError;
         }
       }
-      console.error('Erro ao buscar comentários:', error);
+      console.error("Erro ao buscar comentários:", error);
       throw error;
     }
   }
