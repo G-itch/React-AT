@@ -33,7 +33,11 @@ function App() {
       setPosts([]);
       setComments([]);
     } catch (err) {
-      setError('Erro ao carregar usuários');
+      let errorMessage = 'Erro ao carregar usuários';
+      if (err.message.includes('Failed to fetch')) {
+        errorMessage = 'Problema de conexão. Verifique sua internet.';
+      }
+      setError(errorMessage);
       console.error(err);
     } finally {
       setLoading(false);
@@ -51,7 +55,11 @@ function App() {
       setSelectedPost(null);
       setComments([]);
     } catch (err) {
-      setError('Erro ao carregar posts do usuário');
+      let errorMessage = 'Erro ao carregar posts do usuário';
+      if (err.message.includes('Failed to fetch')) {
+        errorMessage = 'Problema de conexão ao carregar posts.';
+      }
+      setError(errorMessage);
       console.error(err);
     } finally {
       setLoading(false);
@@ -67,7 +75,11 @@ function App() {
       setComments(commentsData);
       setCurrentView('comments');
     } catch (err) {
-      setError('Erro ao carregar comentários do post');
+      let errorMessage = 'Erro ao carregar comentários do post';
+      if (err.message.includes('Failed to fetch')) {
+        errorMessage = 'Problema de conexão ao carregar comentários.';
+      }
+      setError(errorMessage);
       console.error(err);
     } finally {
       setLoading(false);
